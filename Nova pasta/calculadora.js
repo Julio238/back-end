@@ -1,4 +1,3 @@
-// Funções para as operações matemáticas
 
 function somar(a, b) {
   return a + b;
@@ -14,30 +13,37 @@ function multiplicar(a, b) {
 
 function dividir(a, b) {
   if (b === 0) {
-    return "Erro: Divisão por zero não permitida!";
+      return "Erro: Divisão por zero não permitida!";
   }
   return a / b;
 }
 
-// Função principal para fazer as operações
-function calcular(operacao, a, b) {
-  switch (operacao) {
-    case 'soma':
-      return somar(a, b);
-    case 'subtracao':
-      return subtrair(a, b);
-    case 'multiplicacao':
-      return multiplicar(a, b);
-    case 'divisao':
-      return dividir(a, b);
-    default:
-      return "Operação inválida!";
+function calcular() {
+
+  let operacao = prompt("Escolha a operação (soma, subtracao, multiplicacao, divisao):").toLowerCase();
+  let num1 = parseFloat(prompt("Digite o primeiro número:"));
+  let num2 = parseFloat(prompt("Digite o segundo número:"));
+  
+  let resultado;
+
+  switch(operacao) {
+      case 'soma':
+          resultado = somar(num1, num2);
+          break;
+      case 'subtracao':
+          resultado = subtrair(num1, num2);
+          break;
+      case 'multiplicacao':
+          resultado = multiplicar(num1, num2);
+          break;
+      case 'divisao':
+          resultado = dividir(num1, num2);
+          break;
+      default:
+          resultado = "Operação inválida!";
   }
+
+  alert("Resultado: " + resultado);
 }
 
-// Exemplo de uso
-console.log(calcular('soma', 5, 3));          // 8
-console.log(calcular('subtracao', 5, 3));     // 2
-console.log(calcular('multiplicacao', 5, 3)); // 15
-console.log(calcular('divisao', 5, 3));       // 1.666...
-console.log(calcular('divisao', 5, 0));       // Erro: Divisão por zero não permitida!
+calcular();
